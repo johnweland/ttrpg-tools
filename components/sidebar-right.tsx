@@ -24,17 +24,17 @@ const data = {
     {
       name: "Pros & Perils",
       logo: Command,
-      plan: "Enterprise",
+      plan: "Greyhawk",
     },
     {
       name: "Acquisitions Inc.",
       logo: AudioWaveform,
-      plan: "Startup",
+      plan: "Almeria",
     },
     {
       name: "Evil Corp.",
       logo: Command,
-      plan: "Free",
+      plan: "Ethralis",
     },
   ],
   calendars: [

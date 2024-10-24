@@ -37,7 +37,7 @@ const data = {
   },
   worlds: [
     {
-      name: "Pros & Perils",
+      name: "Greyhawk",
       logo: ShieldHalf,
       plan: "Explorer",
     },
