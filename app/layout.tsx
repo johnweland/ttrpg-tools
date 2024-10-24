@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { Rum } from "@/hooks/use-rum";
+import { ThemeProvider } from "@/components/theme-provider";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -24,11 +26,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="h-full" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased h-full`}
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Rum />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
