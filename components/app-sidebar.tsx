@@ -4,6 +4,8 @@ import * as React from "react";
 import {
   BookOpen,
   Bot,
+  BotIcon,
+  Calendar,
   Frame,
   LucideGlobe,
   Map,
@@ -13,9 +15,11 @@ import {
   ShieldHalf,
   SquareTerminal,
 } from "lucide-react";
+import { RiDiscordLine } from "react-icons/ri";
 
 import { NavMain } from "@/components/nav-main";
 import { NavProjects } from "@/components/nav-projects";
+import { NavTools } from "@/components/nav-tools";
 import { NavUser } from "@/components/nav-user";
 import { WorldSwitcher } from "@/components/world-switcher";
 import {
@@ -156,6 +160,23 @@ const data = {
       icon: Map,
     },
   ],
+  tools: [
+    {
+      name: "Calendar",
+      url: "#",
+      icon: Calendar,
+    },
+    {
+      name: "Session Notes",
+      url: "#",
+      icon: RiDiscordLine,
+    },
+    {
+      name: "Travel",
+      url: "#",
+      icon: Map,
+    },
+  ],
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
@@ -167,6 +188,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarContent>
         <NavMain items={data.navMain} />
         <NavProjects projects={data.projects} />
+        <NavTools tools={data.tools} />
       </SidebarContent>
       <SidebarGroup>
         <ModeToggle />

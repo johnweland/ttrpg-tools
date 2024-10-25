@@ -24,31 +24,35 @@ const data = {
     {
       name: "Pros & Perils",
       logo: Command,
-      plan: "Greyhawk",
+      campaignSetting: "Greyhawk",
     },
     {
       name: "Acquisitions Inc.",
       logo: AudioWaveform,
-      plan: "Almeria",
+      campaignSetting: "Almeria",
     },
     {
       name: "Evil Corp.",
       logo: Command,
-      plan: "Ethralis",
+      campaignSetting: "None",
     },
   ],
   calendars: [
     {
-      name: "My Calendars",
-      items: ["Personal", "Work", "Family"],
+      name: "Campaign Calendars",
+      items: [
+        "Almeria: Beginings",
+        "Pros & Perils: Joe's Campaign",
+        "Pros & Perils: Andy's Campaign",
+      ],
     },
     {
-      name: "Favorites",
-      items: ["Holidays", "Birthdays"],
+      name: "My Calendars",
+      items: ["Personal"],
     },
     {
       name: "Other",
-      items: ["Travel", "Reminders", "Deadlines"],
+      items: ["Holidays", "Birthdays"],
     },
   ],
 };
