@@ -1,5 +1,5 @@
 import { AppSidebar } from "@/components/app-sidebar";
-import { SidebarRight } from "@/components/sidebar-right";
+import { CalendarSidebar } from "@/components/calendar-sidebar";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -46,7 +46,7 @@ export default function Page() {
           <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/80 md:min-h-min animate-pulse" />
         </div>
       </SidebarInset>
-      <SidebarRight />
+      <CalendarSidebar className="w-auto" />
     </SidebarProvider>
   );
 }

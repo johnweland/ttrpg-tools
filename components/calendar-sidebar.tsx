@@ -57,12 +57,14 @@ const data = {
   ],
 };
 
-export function SidebarRight({
+export function CalendarSidebar({
   ...props
 }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar
-      collapsible="none"
+      collapsible="offcanvas"
+      variant="floating"
+      side="right"
       className="sticky hidden lg:flex top-0 h-svh border-l"
       {...props}
     >

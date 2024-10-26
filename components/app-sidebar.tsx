@@ -2,23 +2,20 @@
 
 import * as React from "react";
 import {
+  AudioWaveform,
   BookOpen,
   Bot,
-  BotIcon,
   Calendar,
-  Frame,
+  LifeBuoy,
   LucideGlobe,
-  Map,
   MapIcon,
-  PieChart,
   Settings2,
   ShieldHalf,
   SquareTerminal,
 } from "lucide-react";
-import { RiDiscordLine } from "react-icons/ri";
 
 import { NavMain } from "@/components/nav-main";
-import { NavProjects } from "@/components/nav-projects";
+import { NavSettings } from "@/components/nav-settings";
 import { NavTools } from "@/components/nav-tools";
 import { NavUser } from "@/components/nav-user";
 import { WorldSwitcher } from "@/components/world-switcher";
@@ -27,10 +24,8 @@ import {
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
-  SidebarGroup,
   SidebarRail,
 } from "@/components/ui/sidebar";
-import { ModeToggle } from "@/components/theme-provider";
 
 // This is sample data.
 const data = {
@@ -96,85 +91,34 @@ const data = {
         },
       ],
     },
+  ],
+  navSettings: [
     {
       title: "Documentation",
       url: "#",
       icon: BookOpen,
-      items: [
-        {
-          title: "Introduction",
-          url: "#",
-        },
-        {
-          title: "Get Started",
-          url: "#",
-        },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
-        },
-      ],
+    },
+    {
+      title: "Feedback",
+      url: "#",
+      icon: LifeBuoy,
     },
     {
       title: "Settings",
       url: "#",
       icon: Settings2,
-      items: [
-        {
-          title: "General",
-          url: "#",
-        },
-        {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
-        },
-      ],
-    },
-  ],
-  projects: [
-    {
-      name: "Design Engineering",
-      url: "#",
-      icon: Frame,
-    },
-    {
-      name: "Sales & Marketing",
-      url: "#",
-      icon: PieChart,
-    },
-    {
-      name: "Travel",
-      url: "#",
-      icon: Map,
     },
   ],
   tools: [
     {
-      name: "Calendar",
+      name: "Session Calendars",
       url: "#",
       icon: Calendar,
     },
     {
       name: "Session Notes",
       url: "#",
-      icon: RiDiscordLine,
-    },
-    {
-      name: "Travel",
-      url: "#",
-      icon: Map,
+      icon: AudioWaveform,
     },
   ],
 };
@@ -187,13 +131,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
         <NavTools tools={data.tools} />
       </SidebarContent>
-      <SidebarGroup>
-        <ModeToggle />
-      </SidebarGroup>
       <SidebarFooter>
+        <NavSettings items={data.navSettings} />
         <NavUser user={data.user} />
       </SidebarFooter>
       <SidebarRail />
