@@ -2,10 +2,14 @@
 
 import * as React from "react";
 import {
+  AudioLines,
   AudioWaveform,
   BookOpen,
-  Bot,
   Calendar,
+  CalendarClock,
+  Eye,
+  Ghost,
+  LibraryBig,
   LifeBuoy,
   LucideGlobe,
   MapIcon,
@@ -13,6 +17,13 @@ import {
   ShieldHalf,
   SquareTerminal,
 } from "lucide-react";
+
+import {
+  GiSpikedDragonHead,
+  GiVampireDracula,
+  GiObelisk,
+  GiGhost,
+} from "react-icons/gi";
 
 import { NavMain } from "@/components/nav-main";
 import { NavSettings } from "@/components/nav-settings";
@@ -26,6 +37,7 @@ import {
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar";
+import { CommandMenu } from "@/components/search";
 
 // This is sample data.
 const data = {
@@ -51,48 +63,94 @@ const data = {
       plan: "Free",
     },
   ],
-  navMain: [
+  mainNav: [
     {
-      title: "Playground",
+      title: "Journals",
       url: "#",
-      icon: SquareTerminal,
-      isActive: true,
+      icon: LibraryBig,
       items: [
         {
-          title: "History",
-          url: "/",
-        },
-        {
-          title: "Starred",
+          title: "People",
           url: "#",
         },
         {
-          title: "Settings",
+          title: "Organizations",
+          url: "#",
+        },
+        {
+          title: "Places",
+          url: "#",
+        },
+        {
+          title: "Items",
+          url: "#",
+        },
+        {
+          title: "Creatures",
+          url: "#",
+        },
+        {
+          title: "Pantheons",
+          url: "#",
+        },
+        {
+          title: "Planes",
+          url: "#",
+        },
+        {
+          title: "Languages",
           url: "#",
         },
       ],
     },
     {
-      title: "Models",
+      title: "Histories",
       url: "#",
-      icon: Bot,
+      icon: CalendarClock,
       items: [
         {
-          title: "Genesis",
+          title: "Eras",
           url: "#",
         },
         {
-          title: "Explorer",
+          title: "Events",
           url: "#",
         },
         {
-          title: "Quantum",
+          title: "World Calendar",
           url: "#",
         },
       ],
+    },
+    {
+      title: "World Settings",
+      url: "#",
+      icon: Settings2,
     },
   ],
-  navSettings: [
+  campaignsNav: [
+    {
+      title: "Phandelver & Below ...",
+      url: "#",
+      icon: GiObelisk,
+    },
+    {
+      title: "Curse of Strahd",
+      url: "#",
+      icon: GiVampireDracula,
+    },
+    {
+      title: "Tyrany of Dragons",
+      url: "#",
+      icon: GiSpikedDragonHead,
+    },
+    {
+      title: "Ghosts of Saltmarsh",
+      url: "#",
+      icon: GiGhost,
+    },
+  ],
+  helpNav: [
     {
       title: "Documentation",
       url: "#",
@@ -103,22 +161,26 @@ const data = {
       url: "#",
       icon: LifeBuoy,
     },
-    {
-      title: "Settings",
-      url: "#",
-      icon: Settings2,
-    },
   ],
-  tools: [
+  toolsNav: [
     {
-      name: "Session Calendars",
+      title: "Session Notes",
       url: "#",
-      icon: Calendar,
+      icon: AudioLines,
+      actions: [
+        {
+          title: "Add to Discord",
+          icon: SquareTerminal,
+          url: "#",
+        },
+      ],
     },
     {
-      name: "Session Notes",
-      url: "#",
-      icon: AudioWaveform,
+      title: "Session Calendars",
+      function: () => {
+        console.log("Session Calendars");
+      },
+      icon: Calendar,
     },
   ],
 };
@@ -130,11 +192,13 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <WorldSwitcher worlds={data.worlds} />
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
-        <NavTools tools={data.tools} />
+        <CommandMenu />
+        <NavMain label="World Data" items={data.mainNav} />
+        <NavMain label="Campaigns" items={data.campaignsNav} />
+        <NavTools label="Tools" tools={data.toolsNav} />
       </SidebarContent>
       <SidebarFooter>
-        <NavSettings items={data.navSettings} />
+        <NavSettings items={data.helpNav} />
         <NavUser user={data.user} />
       </SidebarFooter>
       <SidebarRail />

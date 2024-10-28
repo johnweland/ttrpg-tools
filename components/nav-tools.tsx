@@ -25,58 +25,102 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 
+type ToolWithUrl = {
+  title: string;
+  url: string;
+  icon: LucideIcon;
+  actions?: {
+    title: string;
+    icon?: LucideIcon;
+    url: string;
+  }[];
+};
+
+type ToolWithFunction = {
+  title: string;
+  function: () => void;
+  icon: LucideIcon;
+  actions?: {
+    title: string;
+    icon?: LucideIcon;
+    url: string;
+  }[];
+};
+
 export function NavTools({
+  label,
   tools,
 }: {
-  tools: {
-    name: string;
-    url: string;
-    icon: LucideIcon;
-  }[];
+  label: string;
+  tools: (ToolWithUrl | ToolWithFunction)[];
 }) {
   const { isMobile } = useSidebar();
 
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>Tools</SidebarGroupLabel>
+      <SidebarGroupLabel>{label}</SidebarGroupLabel>
       <SidebarMenu>
-        {tools.map((tool) => (
-          <SidebarMenuItem key={tool.name}>
-            <SidebarMenuButton asChild>
-              <a href={tool.url}>
-                <tool.icon />
-                <span>{tool.name}</span>
-              </a>
-            </SidebarMenuButton>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <SidebarMenuAction showOnHover>
-                  <MoreHorizontal />
-                  <span className="sr-only">More</span>
-                </SidebarMenuAction>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent
-                className="w-48 rounded-lg"
-                side={isMobile ? "bottom" : "right"}
-                align={isMobile ? "end" : "start"}
-              >
-                <DropdownMenuItem>
-                  <Folder className="text-muted-foreground" />
-                  <span>View Project</span>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Forward className="text-muted-foreground" />
-                  <span>Share Project</span>
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem>
-                  <Trash2 className="text-muted-foreground" />
-                  <span>Delete Project</span>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </SidebarMenuItem>
-        ))}
+        {tools.map((tool) =>
+          tool.actions && tool.actions.length > 0 ? (
+            <SidebarMenuItem key={tool.title}>
+              {"url" in tool ? (
+                <SidebarMenuButton asChild tooltip={tool.title}>
+                  <a href={tool.url}>
+                    <tool.icon />
+                    <span>{tool.title}</span>
+                  </a>
+                </SidebarMenuButton>
+              ) : (
+                <SidebarMenuButton
+                  variant="outline"
+                  tooltip={tool.title}
+                  onClick={tool.function}
+                >
+                  <tool.icon />
+                  {tool.title}
+                </SidebarMenuButton>
+              )}
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <SidebarMenuAction>
+                    <MoreHorizontal />
+                    <span className="sr-only">More</span>
+                  </SidebarMenuAction>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent
+                  className="w-48 rounded-lg"
+                  side={isMobile ? "bottom" : "right"}
+                  align={isMobile ? "end" : "start"}
+                >
+                  {tool.actions?.map((action) => (
+                    <DropdownMenuItem key={action.title}>
+                      {action.icon && (
+                        <action.icon className="text-muted-foreground" />
+                      )}
+                      <span>{action.title}</span>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </SidebarMenuItem>
+          ) : (
+            <SidebarMenuItem key={tool.title}>
+              {"url" in tool ? (
+                <SidebarMenuButton asChild tooltip={tool.title}>
+                  <a href={tool.url}>
+                    <tool.icon />
+                    <span>{tool.title}</span>
+                  </a>
+                </SidebarMenuButton>
+              ) : (
+                <SidebarMenuButton tooltip={tool.title} onClick={tool.function}>
+                  <tool.icon />
+                  {tool.title}
+                </SidebarMenuButton>
+              )}
+            </SidebarMenuItem>
+          ),
+        )}
       </SidebarMenu>
     </SidebarGroup>
   );
