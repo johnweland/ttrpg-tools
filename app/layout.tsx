@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Rum } from "@/hooks/use-rum";
+import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "@/components/theme-provider";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -38,6 +39,7 @@ export default function RootLayout({
         >
           <Rum />
           {children}
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

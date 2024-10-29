@@ -18,6 +18,7 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
+import { toast } from "sonner";
 
 export function WorldSwitcher({
   worlds,
@@ -75,11 +76,16 @@ export function WorldSwitcher({
               </DropdownMenuItem>
             ))}
             <DropdownMenuSeparator />
-            <DropdownMenuItem className="gap-2 p-2">
-              <div className="flex size-6 items-center justify-center rounded-md border bg-background">
+            <DropdownMenuItem className="gap-2 p-2" asChild>
+              <SidebarMenuButton
+                tooltip={""}
+                onClick={() => {
+                  toast.success("World Added");
+                }}
+              >
                 <Plus className="size-4" />
-              </div>
-              <div className="font-medium text-muted-foreground">Add world</div>
+                <span>Add World</span>
+              </SidebarMenuButton>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

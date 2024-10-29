@@ -3,12 +3,9 @@
 import * as React from "react";
 import {
   AudioLines,
-  AudioWaveform,
   BookOpen,
   Calendar,
   CalendarClock,
-  Eye,
-  Ghost,
   LibraryBig,
   LifeBuoy,
   LucideGlobe,
@@ -38,6 +35,8 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar";
 import { CommandMenu } from "@/components/search";
+import { AccountQuota } from "./account-quota";
+import { toast } from "sonner";
 
 // This is sample data.
 const data = {
@@ -178,6 +177,7 @@ const data = {
     {
       title: "Session Calendars",
       function: () => {
+        toast.success("Session Calendars");
         console.log("Session Calendars");
       },
       icon: Calendar,
@@ -196,9 +196,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavMain label="World Data" items={data.mainNav} />
         <NavMain label="Campaigns" items={data.campaignsNav} />
         <NavTools label="Tools" tools={data.toolsNav} />
+        <NavSettings items={data.helpNav} />
       </SidebarContent>
       <SidebarFooter>
-        <NavSettings items={data.helpNav} />
+        <AccountQuota />
         <NavUser user={data.user} />
       </SidebarFooter>
       <SidebarRail />
