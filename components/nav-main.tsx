@@ -1,6 +1,7 @@
 "use client";
 
-import { ChevronRight, Settings2, type LucideIcon } from "lucide-react";
+import { ChevronRight, type LucideIcon } from "lucide-react";
+import { type IconType } from "react-icons";
 
 import {
   Collapsible,
@@ -26,7 +27,7 @@ export function NavMain({
   items: {
     title: string;
     url: string;
-    icon?: LucideIcon;
+    icon?: LucideIcon | IconType;
     isActive?: boolean;
     items?: {
       title: string;

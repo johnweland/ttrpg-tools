@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { ChevronsUpDown, Plus } from "lucide-react";
+import { ChevronsUpDown, Plus, CircleX } from "lucide-react";
 
 import {
   DropdownMenu,
@@ -31,6 +31,14 @@ export function WorldSwitcher({
 }) {
   const { isMobile } = useSidebar();
   const [activeWorld, setActiveWorld] = React.useState(worlds[0]);
+
+  const promise = () =>
+    new Promise((resolve, reject) =>
+      setTimeout(
+        () => reject({ status: 500, message: "Internal Server Error" }),
+        2000,
+      ),
+    );
 
   return (
     <SidebarMenu>
@@ -80,7 +88,27 @@ export function WorldSwitcher({
               <SidebarMenuButton
                 tooltip={""}
                 onClick={() => {
-                  toast.success("World Added");
+                  toast.promise(promise, {
+                    loading: "Loading...",
+                    success: (data) => {
+                      return `Successfully added a new world!`;
+                    },
+                    error: (error) => {
+                      return (
+                        <div className="flex items-center w-auto">
+                          <CircleX />
+                          <div className="ml-4">
+                            <span className="text-xs font-bold">
+                              {error.status} - {error.message}
+                            </span>
+                            <p className="text-sm">
+                              Failed to add a new world!
+                            </p>
+                          </div>
+                        </div>
+                      );
+                    },
+                  });
                 }}
               >
                 <Plus className="size-4" />

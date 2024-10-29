@@ -33,6 +33,7 @@ import {
   SidebarFooter,
   SidebarHeader,
   SidebarRail,
+  SidebarSeparator,
 } from "@/components/ui/sidebar";
 import { CommandMenu } from "@/components/search";
 import { AccountQuota } from "./account-quota";
@@ -193,13 +194,16 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <CommandMenu />
+        <SidebarSeparator />
         <NavMain label="World Data" items={data.mainNav} />
+        <SidebarSeparator />
         <NavMain label="Campaigns" items={data.campaignsNav} />
+        <SidebarSeparator />
         <NavTools label="Tools" tools={data.toolsNav} />
-        <NavSettings items={data.helpNav} />
       </SidebarContent>
       <SidebarFooter>
         <AccountQuota />
+        <NavSettings items={data.helpNav} />
         <NavUser user={data.user} />
       </SidebarFooter>
       <SidebarRail />
