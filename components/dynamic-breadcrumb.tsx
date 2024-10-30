@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import { usePathname } from "next/navigation";
 import {
   Breadcrumb,
@@ -16,22 +17,26 @@ export default function DynamicBreadCrumb() {
     <Breadcrumb>
       <BreadcrumbList>
         <BreadcrumbItem className="hidden md:block">
-          <BreadcrumbLink href="#">Dashboard</BreadcrumbLink>
+          <BreadcrumbLink href={"/dashboard"}>Dashboard</BreadcrumbLink>
         </BreadcrumbItem>
-        {pathNames.length > 0 && (
-          <>
-            <BreadcrumbSeparator className="hidden md:block" />
-            {pathNames.map((path, index) =>
-              path !== "dashboard" ? ( // only needed if dashboard is a path and not the root site
-                <BreadcrumbItem key={index}>
-                  <BreadcrumbLink href="#">
-                    {path[0].toUpperCase() + path.slice(1)}
+        {pathNames.length > 0 &&
+          pathNames.map((path, index) =>
+            path !== "dashboard" ? ( // only needed if dashboard is a path and not the root site
+              <React.Fragment key={index}>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbLink
+                    href={
+                      `${paths.substring(0, paths.lastIndexOf(pathNames[index]))}` +
+                      `${path}`
+                    }
+                  >
+                    {path.charAt(0).toUpperCase() + path.slice(1)}
                   </BreadcrumbLink>
                 </BreadcrumbItem>
-              ) : null,
-            )}
-          </>
-        )}
+              </React.Fragment>
+            ) : null,
+          )}
       </BreadcrumbList>
     </Breadcrumb>
   );

@@ -165,7 +165,7 @@ const data = {
   toolsNav: [
     {
       title: "Session Notes",
-      url: "#",
+      url: "/dashboard/tools/session-notes",
       icon: AudioLines,
       actions: [
         {

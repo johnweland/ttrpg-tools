@@ -1,3 +1,3 @@
 export default function Page() {
-  return <h1>Tools Page</h1>;
+  return <h1>Session Notes</h1>;
 }
