@@ -1,0 +1,76 @@
+# Companion Discord Bot
+
+## Overview
+
+The **Companion Discord Bot** is a centralized, standalone Discord bot designed to enhance the tabletop RPG experience by integrating with both the **TTRPG Scheduling Tool** and **Session Notes Tool**. Acting as a powerful assistant for Dungeon Masters (DMs) and players alike, the bot provides an intuitive interface to manage group scheduling, track session summaries, and coordinate gameplay activities directly within Discord.
+
+Through simple commands and conversational prompts, the bot streamlines the process of organizing sessions, updating notes, and managing availability, leaving players free to focus on gameplay.
+
+## Key Features
+
+- **Scheduling Integration**: Enables players to check and update availability, view group schedules, and confirm upcoming sessions. The bot listens for scheduling discussions, suggests times, and manages conflicts across multiple groups, with final confirmation by the DM or designated assistant.
+
+- **Session Notes Integration**: Allows DMs or designated users to log session notes, create summaries, and link to past sessions. The bot can automatically capture important highlights and help retrieve previous notes, ensuring game continuity.
+
+- **Centralized Command System**: Commands for scheduling, availability, and session notes are all accessible from within Discord, creating a unified experience for managing TTRPG activities.
+
+## Use Case
+
+The TTRPG Companion Bot is ideal for TTRPG groups that:
+
+1. **Manage Multiple Sessions**: The bot’s integration with a calendar tool allows DMs and players to organize schedules across multiple groups, preventing scheduling conflicts and keeping everyone on the same page.
+
+2. **Need Session Recaps and Record-Keeping**: The bot’s notes integration provides a simple way to log session details, retrieve summaries, and track in-game events, ensuring continuity between sessions.
+
+3. **Prefer a Centralized TTRPG Assistant**: By integrating with both the scheduling and notes tools, the bot acts as a one-stop shop for organizing all aspects of a TTRPG campaign, making it easier for groups to stay organized and connected.
+
+## Discord Bot Commands
+
+### Scheduling Commands
+- **`!schedule [date/time]`** – Propose a session time and check group availability.
+- **`!pollTimes`** – Start a vote with suggested times, allowing players to respond.
+- **`!confirmSession [date/time]`** – Lock in a session time once availability is confirmed.
+- **`!nextSession*`** – Display the date, time, and details for the next scheduled session.
+- **`!sessionStatus`** – Check which players have confirmed or declined for the next session.
+- **`!setAvailability [date/time range]`** – Update availability directly.
+- **`!myAvailability`** – View or adjust availability at a glance.
+
+### Notes Commands
+- **`!getNotes`** – Show recent session notes or highlights.
+- **`!join`**: The bot joins the current voice channel to begin listening and transcribing.
+- **`!startSession`**: Starts a new session for notes, logging the session in the journal and preparing the transcription process.
+- **`!stopSession`**: Stops the session and transcription, saves the notes, and exits the voice channel.
+- **`!pause`**: Pauses the transcription without leaving the voice channel, allowing the bot to skip unrelated discussions.
+- **`!resume`**: Resumes transcription after a pause.
+- **`!summarize`**: Generates a summary of key points from the session so far, useful for mid-session reviews or breaks.
+- **`!tag [term]`**: Tags specific terms or phrases as important, ensuring they’re highlighted in the notes for easier recall.
+- **`!banterMode`**: Temporarily switches to banter mode, where the bot listens but doesn’t log until reactivated with `!resumeGame`.
+- **`!link [topic]`**: Links the current note to a pre-existing note or journal entry for cross-referencing (e.g., `!link Tiamat`).
+- **`!edit`**: Allows DMs or authorized users to review and edit the transcription notes for accuracy.
+- **`!export [format]`**: Exports session notes to a specified format (e.g., PDF, Markdown).
+
+### General Commands
+- `!help` – Display available commands and descriptions.
+- `!remind [time] before session` – Set reminders, e.g., "2 hours before session."
+- `!conflicts` – Check for scheduling conflicts across groups or other events.
+
+## Tooling & Technology Stack
+
+The bot will rely on the following technologies for smooth integration and user experience:
+
+1. **Discord.js** – For managing bot interactions, commands, and message handling within Discord.
+2. **API Integration** – The bot communicates with the TTRPG Scheduling Tool and Session Notes Tool APIs, enabling it to retrieve and update data seamlessly.
+3. **Backend**:
+   - **Node.js** for a fast, reliable backend.
+   - **Firebase** or **MongoDB** for user data storage, command logs, and scheduling information.
+4. **Calendar Integration** – **Google Calendar API** or **Outlook API** for syncing schedules and availability across personal and group calendars.
+
+## Potential Future Enhancements
+
+- **Automated Session Summaries**: Summarize session highlights automatically and share with group members, ensuring everyone is updated.
+- **Visual Calendar Embed**: Show a mini-calendar or upcoming slots directly in Discord for a more visual scheduling experience.
+- **Adaptive Time Zones**: Automatically adjust session times based on player time zones, making global play easier.
+
+## Why Support This Tool?
+
+The TTRPG Companion Bot provides a unique, integrated experience for TTRPG players, enhancing organization and session flow through seamless scheduling and notes management. By offering a centralized assistant within Discord, it minimizes the need for external tools, simplifies session planning, and keeps everyone focused on the game. With user-friendly commands and powerful integration capabilities, this bot promises to be an invaluable resource for TTRPG groups, providing the perfect balance of flexibility and functionality.

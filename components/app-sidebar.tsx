@@ -177,10 +177,7 @@ const data = {
     },
     {
       title: "Session Calendars",
-      function: () => {
-        toast.success("Session Calendars");
-        console.log("Session Calendars");
-      },
+      url: "/dashboard/tools/calendar",
       icon: Calendar,
     },
   ],
@@ -195,10 +192,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarContent>
         <CommandMenu />
         <SidebarSeparator />
-        <NavMain label="World Data" items={data.mainNav} />
-        <SidebarSeparator />
-        <NavMain label="Campaigns" items={data.campaignsNav} />
-        <SidebarSeparator />
+        {/* <NavMain label="World Data" items={data.mainNav} /> */}
+        {/* <SidebarSeparator /> */}
+        {/* <NavMain label="Campaigns" items={data.campaignsNav} /> */}
+        {/* <SidebarSeparator /> */}
         <NavTools label="Tools" tools={data.toolsNav} />
       </SidebarContent>
       <SidebarFooter>

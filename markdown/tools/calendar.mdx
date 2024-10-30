@@ -1,0 +1,67 @@
+# Calendar & Scheduling Tool
+
+## Overview
+
+The **Calendar & Scheduling Tool** is a web-based application designed to simplify scheduling for tabletop RPG (TTRPG) groups. Inspired by tools like When2meet and Schej.it, this app helps groups find mutually convenient play times, manage recurring sessions, and detect scheduling conflicts across multiple groups. Players can view separate calendars for each group, update their availability, and avoid conflicts across groups or events.
+
+In addition to its core functionality, the **Calendar & Scheduling Tool** can integrate with the **Companion Discord Bot** to provide an interactive scheduling experience directly within Discord. This extension allows group members to discuss scheduling, view availability, and confirm session times all from a central hub.
+
+## Key Features
+
+- **Group Calendar Views**: Create and manage separate calendars for each TTRPG group, with options for players to toggle between calendars to avoid conflicts and easily find mutual availability.
+
+- **Availability Voting & Conflict Detection**: Players can mark their availability or rank preferences. The tool highlights conflicts, ensuring that scheduling is easy and efficient.
+
+- **Recurring Sessions**: Set sessions to repeat on a regular schedule (e.g., every other Friday from 7 PM - 11 PM) and configure automatic reminders, allowing DMs to minimize planning time for regularly occurring sessions.
+
+- **Personalized Calendar Syncing**: Integrate with external calendars like Google Calendar or Outlook to sync schedules, ensuring that players’ personal and game calendars are coordinated.
+
+## Use Case
+
+Scheduling TTRPG sessions can be challenging, especially when players have multiple groups or conflicting schedules. The Calendar & Scheduling Tool is designed to:
+
+1. **Simplify Scheduling**: Display availability across players and groups, making it easy to find the best times for everyone.
+2. **Provide Centralized Organization**: Each group has its own calendar, allowing DMs and players to easily manage and view schedules.
+3. **Enhance Game Immersion**: With a regular schedule and reminders, players can focus more on gameplay and less on logistics.
+
+## Potential Tooling & Technology Stack
+
+For an efficient, user-friendly experience, the following tools and technologies are recommended:
+
+1. **Frontend**:
+   - **Next.js** for fast, server-rendered pages and built-in API routes.
+   - **Shadcn/UI** for flexible, consistent component styling.
+
+2. **Backend**:
+   - **Node.js** and **Express** for the server-side API, managing calendar data, reminders, and group availability.
+   - **Firebase** or **MongoDB** for storing user profiles, availability, group structures, and schedule logs.
+
+3. **Calendar Integration**:
+   - **Google Calendar API** or **Outlook API** for syncing external calendars, allowing players to see TTRPG sessions in their personal schedules.
+
+4. **Deployment & DevOps**:
+   - **Vercel** or **AWS Lambda** for scalable, serverless deployment of the Next.js app.
+   - **AWS CodeDeploy** for automating and managing Blue/Green deployments.
+
+## Optional Discord Bot Integration
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_see [Companion Discord Bot](/dashboard/tools/bot)_
+
+While the Calendar & Scheduling Tool is fully functional as a web app, its capabilities are extended by the **Companion Discord Bot**. Through this integration, group members can:
+
+- Use scheduling commands (e.g., `!schedule`, `!confirmSession`, `!nextSession`) to interact with the calendar directly in Discord.
+- Discuss and adjust availability in real time, with the bot making intelligent scheduling suggestions based on group availability.
+- Access reminders, availability polling, and quick schedule updates, all within Discord.
+
+The Discord bot integration provides a streamlined, accessible interface for managing TTRPG schedules, making it ideal for groups that prefer to coordinate via Discord.
+
+## Future Enhancements
+
+Potential future features include:
+
+- **Automated Conflict Resolution**: Automatically detect and suggest alternative times when conflicts arise.
+- **Custom Time Zones**: Adapt session times based on player time zones, making it easier for groups in different regions.
+- **Session Summary Sync**: Integrate with session summaries from the Session Notes Tool to keep group members updated on recent gameplay events.
+
+## Why Support This Tool?
+
+The Calendar & Scheduling Tool addresses the scheduling challenges faced by TTRPG groups, offering a streamlined solution for organizing sessions without hassle. With group-based availability, integrated calendar sync, and the option to extend functionality through the Companion Discord Bot, this tool provides flexibility and convenience. By supporting this tool, you’re helping create a seamless, organized TTRPG experience, allowing players to spend less time planning and more time playing.

@@ -1,0 +1,61 @@
+# Session Notes Tool
+
+
+## Overview
+
+This tool is designed to enhance Tabletop RPG (TTRPG) session note-taking by providing a centralized, interactive web application for DMs and authorized players to document session summaries. Users can create and manage session notes directly within the web app, linking important events and characters to build a rich campaign history.
+
+The goal is to make note-taking efficient, unobtrusive, and deeply integrated with TTRPG campaigns, helping DMs retain critical details while minimizing distraction and preserving gameplay immersion.
+In addition to its core functionality, the **Session Notes Tool** can integrate with the **Companion Discord Bot** to provide an assistant in voice chant to listen to the session and create sumarized notes.
+
+## Use Case
+
+For TTRPG players and DMs, keeping track of campaign details across multiple sessions can be challenging. This tool aims to solve that by allowing users to document session notes in a streamlined web interface. By automating note organization and linking critical in-game events to previous records, this application helps users maintain continuity across sessions.
+
+Whether you’re a DM or a player, this tool helps you:
+
+- **Create and Organize Session Notes**: Focus on playing while the app provides structured fields to log critical events.
+- **Link to Past Events and Characters**: Reference key figures, places, or items mentioned in previous sessions, creating a web of information that grows with your campaign.
+- **Review and Edit Notes**: Log in anytime to update or refine session notes for accuracy and continuity.
+
+## Features
+
+### 1. Session Note Creation & Management
+- **User Authentication**: Only the DM and authorized users can log in to create, view, and manage notes.
+- **Rich Text Editor**: A powerful editor supports inline tagging and markdown, allowing users to link NPCs, locations, or items directly in notes (e.g., `[[Tiamat]]`).
+- **Session Journal**: Store notes in a chronological journal, making it easy to review past sessions and follow the campaign’s progression.
+
+### 2. Interlinked Notes & Tagging System
+- **Automatic Linking**: Users can tag items with double brackets (e.g., `[[ ]]`) to link directly to relevant notes, NPCs, locations, or items.
+- **Graph Database Support** (Optional): For campaigns with rich lore, a graph database like Neo4j could store relationships, providing quick reference to linked elements and helping track complex storylines.
+
+### 3. Optional Discord Bot Integration
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_see [Companion Discord Bot](/dashboard/tools/bot)_
+#### 1. Discord Bot for Voice Transcription
+- **Voice-to-Text Conversion**: The bot joins a designated voice channel and transcribes conversations in real-time using services like OpenAI’s Whisper or Google Speech-to-Text.
+- **Relevance Filtering**: Using Natural Language Processing (NLP), the bot can filter out unrelated chat, logging only game-relevant conversations.
+- **DM Control Over Edits**: DMs can review and refine transcriptions, ensuring accuracy and clarity in session notes.
+
+#### 2. NLP-Driven Filtering of Unrelated Banter
+- **Keyword Matching**: Predefined keywords, such as NPC names, locations, and commonly used game terms (e.g., “initiative,” “attack”), help distinguish game talk from casual banter.
+- **Machine Learning Model**: An advanced NLP model, trained on examples of “game-relevant” vs. “banter” dialogue, identifies patterns to classify and log relevant content.
+- **Contextual Analysis**: The bot considers conversation patterns and density of keywords to further refine the classification.
+
+#### 3. Optional Periodic Summarization and Review
+- **Session Summaries**: The bot could periodically summarize key events from each conversation segment for easy review.
+- **DM Override**: DMs can manually tag or reclassify conversation segments to ensure accurate documentation.
+
+## Technical Overview
+
+This application can be built using a mix of web and bot development tools:
+
+- **Frontend**: React with a markdown-compatible editor for streamlined note-taking.
+- **Backend**: Node.js with Express and PostgreSQL for data storage, or Neo4j for handling complex relational data.
+- **Discord Bot**: Node.js or Python-based Discord bot for real-time transcription, coupled with an NLP service for filtering.
+- **Speech-to-Text API**: Google Speech-to-Text or OpenAI’s Whisper for converting voice chat to text.
+
+## Why This Tool?
+
+For DMs and players invested in building rich, memorable TTRPG campaigns, this tool removes the hassle of manual note-taking, allowing players to stay immersed in the game. By automating note capture and using NLP to focus on game-relevant content, this application provides accurate, usable documentation of each session’s events, characters, and storyline progressions. It enhances storytelling continuity, supports collaboration, and builds a living, searchable campaign history.
+
+Whether for D&D, Pathfinder, or any TTRPG, this session note application and Discord bot combination can support a thriving, well-documented, and enjoyable campaign experience for any group.
