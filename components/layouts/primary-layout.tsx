@@ -24,7 +24,7 @@ export default function PrimaryLayout({
             <DynamicBreadCrumb />
           </div>
         </header>
-        <div className="flex flex-1 flex-col gap-4 p-2 pr-4 pt-0">
+        <div className="flex flex-1 flex-col gap-4 px-2 pr-4 pt-0 pb-2">
           {children}
         </div>
       </SidebarInset>
