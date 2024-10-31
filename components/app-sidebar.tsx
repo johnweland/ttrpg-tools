@@ -4,6 +4,7 @@ import * as React from "react";
 import {
   AudioLines,
   BookOpen,
+  Bot,
   Calendar,
   CalendarClock,
   LibraryBig,
@@ -180,6 +181,11 @@ const data = {
       url: "/dashboard/tools/calendar",
       icon: Calendar,
     },
+    {
+      title: "Discord Bot",
+      url: "/dashboard/tools/bot",
+      icon: Bot,
+    },
   ],
 };
 
@@ -192,8 +198,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarContent>
         <CommandMenu />
         <SidebarSeparator />
-        {/* <NavMain label="World Data" items={data.mainNav} /> */}
-        {/* <SidebarSeparator /> */}
+        <NavMain label="World Data" items={data.mainNav} />
+        <SidebarSeparator />
         {/* <NavMain label="Campaigns" items={data.campaignsNav} /> */}
         {/* <SidebarSeparator /> */}
         <NavTools label="Tools" tools={data.toolsNav} />
