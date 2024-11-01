@@ -15,6 +15,7 @@ import {
   SidebarMenuItem,
   SidebarSeparator,
 } from "@/components/ui/sidebar";
+import { Checkbox } from "@/components/ui/checkbox";
 
 export function Calendars({
   calendars,
@@ -47,14 +48,16 @@ export function Calendars({
                   <SidebarMenu>
                     {calendar.items.map((item, index) => (
                       <SidebarMenuItem key={item}>
-                        <SidebarMenuButton>
-                          <div
-                            data-active={index < 3}
-                            className="group/calendar-item flex aspect-square size-4 shrink-0 items-center justify-center rounded-sm border border-sidebar-border text-sidebar-primary-foreground data-[active=true]:border-sidebar-primary data-[active=true]:bg-sidebar-primary"
-                          >
-                            <Check className="hidden size-3 group-data-[active=true]/calendar-item:block" />
+                        <SidebarMenuButton asChild>
+                          <div className="flex flex-row items-start space-x-3 space-y-0">
+                            <Checkbox id={item} className="" />
+                            <label
+                              htmlFor={item}
+                              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                            >
+                              {item}
+                            </label>
                           </div>
-                          {item}
                         </SidebarMenuButton>
                       </SidebarMenuItem>
                     ))}

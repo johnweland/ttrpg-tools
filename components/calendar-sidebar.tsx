@@ -1,5 +1,5 @@
 "use client";
-import { Plus } from "lucide-react";
+import { FlameKindling, HelpingHand, Plus, Swords } from "lucide-react";
 
 import { Calendars } from "@/components/calendars";
 import { DatePicker } from "@/components/date-picker";
@@ -15,35 +15,36 @@ import {
   SidebarSeparator,
 } from "@/components/ui/sidebar";
 
-import { AudioWaveform, Command } from "lucide-react";
-
 // This is sample data.
 const data = {
   teams: [
     {
-      name: "Pros & Perils",
-      logo: Command,
-      campaignSetting: "Greyhawk",
-    },
-    {
-      name: "Acquisitions Inc.",
-      logo: AudioWaveform,
+      name: "Almeria: The Begining",
+      logo: HelpingHand,
       campaignSetting: "Almeria",
     },
     {
-      name: "Evil Corp.",
-      logo: Command,
+      name: "Almeria: Blood & Sand",
+      logo: Swords,
+      campaignSetting: "Almeria",
+    },
+    {
+      name: "Pros & Perils",
+      logo: FlameKindling,
+      campaignSetting: "None",
+    },
+    {
+      name: "Pros & Perils 2",
+      logo: FlameKindling,
       campaignSetting: "None",
     },
   ],
   calendars: [
     {
       name: "Campaign Calendars",
-      items: [
-        "Almeria: Beginings",
-        "Pros & Perils: Joe's Campaign",
-        "Pros & Perils: Andy's Campaign",
-      ],
+      get items() {
+        return data.teams.map((item) => item.name);
+      },
     },
     {
       name: "My Calendars",

@@ -7,6 +7,7 @@ import {
   Bot,
   Calendar,
   CalendarClock,
+  GitMerge,
   LibraryBig,
   LifeBuoy,
   LucideGlobe,
@@ -37,8 +38,6 @@ import {
   SidebarSeparator,
 } from "@/components/ui/sidebar";
 import { CommandMenu } from "@/components/search";
-import { AccountQuota } from "./account-quota";
-import { toast } from "sonner";
 
 // This is sample data.
 const data = {
@@ -158,6 +157,11 @@ const data = {
       icon: BookOpen,
     },
     {
+      title: "Change Log",
+      url: "#",
+      icon: GitMerge,
+    },
+    {
       title: "Feedback",
       url: "#",
       icon: LifeBuoy,
@@ -205,8 +209,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavTools label="Tools" tools={data.toolsNav} />
       </SidebarContent>
       <SidebarFooter>
-        <AccountQuota />
         <NavSettings items={data.helpNav} />
+        <SidebarSeparator />
         <NavUser user={data.user} />
       </SidebarFooter>
       <SidebarRail />
