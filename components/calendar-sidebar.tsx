@@ -33,16 +33,11 @@ const data = {
       logo: FlameKindling,
       campaignSetting: "None",
     },
-    {
-      name: "Pros & Perils 2",
-      logo: FlameKindling,
-      campaignSetting: "None",
-    },
   ],
   calendars: [
     {
       name: "Campaign Calendars",
-      get items() {
+      get items(): string[] {
         return data.teams.map((item) => item.name);
       },
     },

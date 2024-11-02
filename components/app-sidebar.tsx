@@ -48,11 +48,6 @@ const data = {
   },
   worlds: [
     {
-      name: "Greyhawk",
-      logo: ShieldHalf,
-      plan: "Explorer",
-    },
-    {
       name: "Almeria",
       logo: MapIcon,
       plan: "World Builder",
